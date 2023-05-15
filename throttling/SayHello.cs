@@ -23,12 +23,12 @@ namespace Company.Function
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
             Random rand = new Random();
-            int sleepTimeInSeconds = rand.Next(1, 6);
+            int sleepTimeInMilliSeconds = rand.Next(2000, 8000);
 
-            _logger.LogInformation($"Sleeping for {sleepTimeInSeconds} seconds...");
-            Thread.Sleep(sleepTimeInSeconds * 1000);
+            _logger.LogInformation($"Sleeping for {sleepTimeInMilliSeconds} milliseconds...");
+            Thread.Sleep(sleepTimeInMilliSeconds);
 
-            response.WriteString($"Slept for {sleepTimeInSeconds} seconds!");
+            response.WriteString($"Slept for {sleepTimeInMilliSeconds} milliseconds!");
 
             return response;
         }
